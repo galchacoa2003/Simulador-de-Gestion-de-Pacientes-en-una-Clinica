@@ -1,0 +1,48 @@
+fecha: 12/03/2025
+
+¿Qué se trabajó hoy? (Tareas específicas completadas o en progreso).
+
+1 Se agregó la clase Nodo y la implementación del Árbol Binario de Búsqueda (BST) dentro de la carpeta 
+"BST". También se importó correctamente la clase "ArbolBinarioBusqueda" en "GestionRegistrar" para 
+permitir el registro de expedientes aun esta en progreso.
+
+2 Se agregó la implementación de la clase "GestionCola" en el paquete "Menu", la cual gestiona la 
+cola de atención activa, con opciones para registrar, buscar, eliminar pacientes y registrar salida 
+de consultas pero aun sin funcionalidades esta en progreso.
+
+3 Se creó la clase principal "Main" con opciones principales en el menú en la cual se llaman a los
+otros modulos del codigo.
+
+¿Qué inteligencia artificial se utilizó? (Si aplica, indicar la herramienta específica).
+
+Geminis
+
+¿Qué prompt se hizo? (La pregunta o solicitud exacta a la IA).
+
+1 ¿Cómo funciona un Árbol Binario? ¿Cómo se agregan y buscan elementos en él?
+
+2 ¿Cómo se maneja una cola en un Árbol AVL? 
+
+¿Qué respondió la IA? (Un resumen de la respuesta relevante).
+
+Árbol Binario: Es una estructura donde cada nodo tiene hasta dos hijos. 
+Los elementos se agregan siguiendo un orden específico y se buscan comparando valores,
+ moviéndose a la izquierda o derecha dependiendo del valor. Es útil para búsquedas rápidas
+  y organización jerárquica de datos. (explicacion con codigo me fue otorgada)
+
+Árbol AVL (con cola): Es un tipo de Árbol Binario de Búsqueda que siempre se 
+mantiene balanceado. Después de cada operación (inserción o eliminación), se verifica y 
+ajusta el equilibrio del árbol, garantizando que las operaciones se realicen de manera eficiente.
+(explicacion con codigo me fue otorgada aunque no esta implementada debo ver bien la logica)
+
+
+¿Cómo se adaptó esa respuesta al proyecto? (Explicar cómo se integró o modificó lo sugerido por la IA).
+
+La información sobre el Árbol Binario y el Árbol Binario de Búsqueda (BST) se adaptó al proyecto al 
+implementar primero la estructura básica de un árbol binario utilizando nodos, lo que permitió organizar
+ y almacenar datos de manera jerárquica. (aun no implementada del todo esta en progreso)
+ 
+ 
+¿Qué problemas se encontraron? (Si los hubo, describir el problema y cómo se intentó resolver).
+
+sin errores.
