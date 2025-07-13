@@ -76,6 +76,7 @@ public class GestionRegistrar {
                 case 3:
                     limpiarConsola();
                     System.out.println("Listando todos los registros...");
+                    arbol.listarRegistros();
                     break;
 
                 case 4:

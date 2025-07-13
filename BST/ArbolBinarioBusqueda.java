@@ -3,7 +3,7 @@ package BST;
 public class ArbolBinarioBusqueda {
 
     private Nodo raiz;
-    private int contadorId;  // Para autoasignar el ID de manera secuencial
+    private int contadorId;
 
     public ArbolBinarioBusqueda() {
         this.raiz = null;
@@ -35,5 +35,29 @@ public class ArbolBinarioBusqueda {
         }
 
         return raiz;
+    }
+
+    // Método para listar todos los registros en orden
+    public void listarRegistros() {
+        if (raiz == null) {
+            System.out.println("No hay registros.");
+        } else {
+            listarRecursivo(raiz);  // Llamamos al método recursivo para listar los nodos
+        }
+    }
+
+    // Método recursivo para listar todos los registros (recorrido en inorden)
+    private void listarRecursivo(Nodo nodo) {
+        if (nodo != null) {
+            // Primero visitamos el subárbol izquierdo
+            listarRecursivo(nodo.izquierdo);
+
+            // Imprimimos el registro del nodo actual
+            System.out.println("ID: " + nodo.id + ", Nombre: " + nodo.nombre + ", Sexo: " + nodo.sexo + 
+                               ", Fecha de Nacimiento: " + nodo.fechaNacimiento + ", Diagnóstico: " + nodo.diagnostico);
+
+            // Luego visitamos el subárbol derecho
+            listarRecursivo(nodo.derecho);
+        }
     }
 }
