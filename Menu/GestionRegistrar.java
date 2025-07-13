@@ -143,7 +143,12 @@ public class GestionRegistrar {
 
                 case 2:
                     limpiarConsola();
-                    System.out.println("Buscando un registro por ID...");
+                    System.out.println("Ingrese el ID del registro que desea buscar:");
+                    int idBuscado = scanner.nextInt();  // Usamos un Scanner para leer el ID del usuario
+                    arbol.buscarRegistroPorId(idBuscado);  // Llamamos al método con el ID ingresado
+                    // Pausar y esperar que el usuario presione Enter para continuar
+                    System.out.println("\nPresione Enter para salir de este apartado...");
+                    scanner.nextLine();
                     break;
 
                 case 3:

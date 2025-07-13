@@ -60,4 +60,38 @@ public class ArbolBinarioBusqueda {
             listarRecursivo(nodo.derecho);
         }
     }
+
+    // Método público para buscar un registro por ID
+    public void buscarRegistroPorId(int id) {
+        Nodo resultado = buscarRecursivo(raiz, id);  // Llama al método recursivo para buscar el ID
+            if (resultado != null) {
+                // Si encontramos el nodo, mostramos los datos
+                System.out.println("Registro encontrado:");
+                System.out.println("ID: " + resultado.id + ", Nombre: " + resultado.nombre + ", Sexo: " + resultado.sexo + 
+                                ", Fecha de Nacimiento: " + resultado.fechaNacimiento + ", Diagnóstico: " + resultado.diagnostico);
+            } else {
+                // Si no encontramos el nodo, informamos que no existe
+                System.out.println("No se encontró un registro con el ID: " + id);
+        }
+    }
+
+    // Método recursivo para buscar un registro por ID
+    private Nodo buscarRecursivo(Nodo nodo, int id) {
+        if (nodo == null) {
+            System.out.println("Nodo nulo, ID no encontrado");  // Depuración
+            return null;  // Si el nodo es nulo, no encontramos el registro
+        }
+
+            if (id == nodo.id) {
+                System.out.println("Encontrado: " + nodo.id);  // Depuración
+                return nodo;  // Si encontramos el ID, devolvemos el nodo
+            } else if (id < nodo.id) {
+                System.out.println("Buscando en el subárbol izquierdo (ID: " + id + " < " + nodo.id + ")");  // Depuración
+                return buscarRecursivo(nodo.izquierdo, id);  // Si el ID es menor, buscamos en el subárbol izquierdo
+            } else {
+                System.out.println("Buscando en el subárbol derecho (ID: " + id + " > " + nodo.id + ")");  // Depuración
+                return buscarRecursivo(nodo.derecho, id);  // Si el ID es mayor, buscamos en el subárbol derecho
+        }
+    }
+
 }
