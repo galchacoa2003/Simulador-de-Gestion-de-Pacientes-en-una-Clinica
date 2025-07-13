@@ -1,9 +1,11 @@
 package Menu;
 
+import BST.ArbolBinarioBusqueda;  // Importar la clase ArbolBinarioBusqueda
 import java.util.Scanner;
 
 public class GestionRegistrar {
     private static Scanner scanner = new Scanner(System.in);  // Scanner global
+    private static ArbolBinarioBusqueda arbol = new ArbolBinarioBusqueda();  // Instancia del árbol
 
     // Función para limpiar la consola (dependiendo del sistema operativo)
     public static void limpiarConsola() {
@@ -50,20 +52,37 @@ public class GestionRegistrar {
             switch (opcion) {
                 case 1:
                     limpiarConsola();
-                    System.out.println("Gestionando Registro Histórico de Expedientes...");
+                    System.out.println("Registrar nuevo expediente");
+                    // Pedir datos del nuevo expediente
+                    System.out.print("Ingrese el nombre del paciente: ");
+                    String nombre = scanner.nextLine();
+                    System.out.print("Ingrese el sexo del paciente: ");
+                    String sexo = scanner.nextLine();
+                    System.out.print("Ingrese la fecha de nacimiento del paciente: ");
+                    String fechaNacimiento = scanner.nextLine();
+                    System.out.print("Ingrese el diagnóstico del paciente: ");
+                    String diagnostico = scanner.nextLine();
+
+                    // Registrar el expediente
+                    arbol.registrarExpediente(nombre, sexo, fechaNacimiento, diagnostico);
+                    System.out.println("Expediente registrado correctamente.");
                     break;
+
                 case 2:
                     limpiarConsola();
                     System.out.println("Buscando un registro por ID...");
                     break;
+
                 case 3:
                     limpiarConsola();
                     System.out.println("Listando todos los registros...");
                     break;
+
                 case 4:
                     limpiarConsola();
                     System.out.println("Regresando al menú principal...");
                     return;  // Sale de este método y regresa al menú principal
+
                 default:
                     System.out.println("Opción no válida, por favor intente nuevamente.");
             }
