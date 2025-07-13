@@ -51,17 +51,90 @@ public class GestionRegistrar {
 
             switch (opcion) {
                 case 1:
+                String nombre;
+                String sexo;
+                String fechaNacimiento;
+                String diagnostico;
                     limpiarConsola();
                     System.out.println("Registrar nuevo expediente");
+
                     // Pedir datos del nuevo expediente
-                    System.out.print("Ingrese el nombre del paciente: ");
-                    String nombre = scanner.nextLine();
-                    System.out.print("Ingrese el sexo del paciente: ");
-                    String sexo = scanner.nextLine();
-                    System.out.print("Ingrese la fecha de nacimiento del paciente: ");
-                    String fechaNacimiento = scanner.nextLine();
-                    System.out.print("Ingrese el diagnóstico del paciente: ");
-                    String diagnostico = scanner.nextLine();
+                    while (true) {             
+                        System.out.print("Ingrese el nombre del paciente: ");
+                        nombre = scanner.nextLine();       
+                        // Verifica si el nombre está vacío, contiene números o tiene espacios
+                        if (nombre.trim().isEmpty()) {
+                            System.out.println("El nombre no puede estar vacío. Intenta nuevamente.");
+                        } else if (nombre.matches(".*\\d.*")) {
+                            System.out.println("El nombre no puede contener números. Intenta nuevamente.");
+                        } else if (!nombre.matches("[A-Za-záéíóúÁÉÍÓÚñÑ]+")) {
+                            System.out.println("El nombre solo puede contener letras. Intenta nuevamente.");
+                        } else {
+                            break; // Sale del bucle si el nombre es válido
+                        }
+                    }
+
+                    while (true) {
+                        System.out.print("Ingrese el sexo del paciente (Masculino/Femenino): ");
+                        sexo = scanner.nextLine().trim().toLowerCase();  // Convierte todo a minúsculas
+                        
+                        // Verifica que el sexo sea "masculino" o "femenino"
+                        if (sexo.equals("masculino") || sexo.equals("femenino")) {
+                            break; // Sale del bucle si el sexo es válido
+                        } else {
+                             System.out.println("Por favor, ingrese masculino o femenino. Intenta nuevamente.");
+                        }
+                    }
+
+                    while (true) {
+                        System.out.print("Ingrese la fecha de nacimiento del paciente (DD/MM/AAAA): ");
+                        fechaNacimiento = scanner.nextLine().trim();
+
+                        // Verifica si la fecha tiene el formato correcto y solo contiene números
+                        if (fechaNacimiento.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                            // Verifica que no haya letras en la fecha
+                            String[] partes = fechaNacimiento.split("/");
+                            // Verifica que el día, mes y año sean números válidos
+                            int dia = Integer.parseInt(partes[0]);
+                            int mes = Integer.parseInt(partes[1]);
+                            int anio = Integer.parseInt(partes[2]);
+
+                            // Validaciones adicionales para los días, meses y años
+                            if (mes < 1 || mes > 12) {
+                                System.out.println("El mes debe estar entre 01 y 12. Intenta nuevamente.");
+                            } else if (dia < 1 || dia > 31) {
+                                System.out.println("El día debe estar entre 01 y 31. Intenta nuevamente.");
+                            } else if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
+                                System.out.println("El mes seleccionado tiene solo 30 días. Intenta nuevamente.");
+                            } else if (mes == 2) {
+                                // Verifica el mes de febrero (28 o 29 días dependiendo del año)
+                                boolean esBisiesto = (anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0));
+                                if ((esBisiesto && dia > 29) || (!esBisiesto && dia > 28)) {
+                                    System.out.println("Febrero solo tiene 28 o 29 días. Intenta nuevamente.");
+                                } else {
+                                    break; // Si todas las validaciones son correctas, sale del bucle
+                                }
+                            } else {
+                                break; // Si todo es válido, sale del bucle
+                            }
+                        } else {
+                                System.out.println("El formato de la fecha es incorrecto. Asegúrese de usar DD/MM/AAAA.");
+                            }
+                    }
+                  
+                    while (true) {
+                        System.out.print("Ingrese el diagnóstico del paciente: ");
+                        diagnostico = scanner.nextLine().trim();
+
+                        // Verifica si el diagnóstico no está vacío ni contiene caracteres especiales
+                        if (diagnostico.isEmpty()) {
+                            System.out.println("El diagnóstico no puede estar vacío. Intenta nuevamente.");
+                        } else if (!diagnostico.matches("[A-Za-záéíóúÁÉÍÓÚñÑ0-9\\s]+")) {
+                            System.out.println("El diagnóstico solo puede contener letras, números y espacios. Intenta nuevamente.");
+                        } else {
+                            break; // Sale del bucle si el diagnóstico es válido
+                        }
+                    }   
 
                     // Registrar el expediente
                     arbol.registrarExpediente(nombre, sexo, fechaNacimiento, diagnostico);
