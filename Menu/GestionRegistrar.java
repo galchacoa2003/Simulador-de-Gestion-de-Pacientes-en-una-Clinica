@@ -43,7 +43,7 @@ public class GestionRegistrar {
 
             // Validar la opción de usuario
             while (!scanner.hasNextInt()) {
-                System.out.println("¡Opción inválida! Por favor, ingrese un número.");
+                System.out.println("|(!) ¡Opción inválida! Por favor, ingrese un número.");
                 scanner.next(); // Limpiar el buffer
             }
             int opcion = scanner.nextInt();
@@ -163,7 +163,7 @@ public class GestionRegistrar {
                     return;  // Sale de este método y regresa al menú principal
 
                 default:
-                    System.out.println("Opción no válida, por favor intente nuevamente.");
+                    System.out.println("|(!) Opción no válida, por favor intente nuevamente.");
             }
 
             // Pausar para ver la salida y continuar

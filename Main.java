@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import Menu.GestionRegistrar;  // Importa la clase GestionRegistrar del paquete Menu
 import Menu.GestionCola; // Importa la clase GestionCola del paquete Menu
@@ -36,11 +37,28 @@ public class Main {
             System.out.println("|(2). Gestionar Cola de Atención Activa          |");
             System.out.println("|(3). Salir del Sistema                          |");
             System.out.println("|-==============================================-|");
-              System.out.print("|Seleccione una opción: ");
+                        
+            int opcion = 0;
+            boolean opcionValida = false;
             
-            int opcion = scanner.nextInt();
-            scanner.nextLine();  // Limpiar el buffer
-            
+            // Asegurarse de que la opción sea válida (1, 2 o 3)
+            while (!opcionValida) {
+                try {
+                    System.out.print("|Seleccione una opción: ");
+                    opcion = scanner.nextInt();
+                    scanner.nextLine();  // Limpiar el buffer
+                    
+                    if (opcion >= 1 && opcion <= 3) {
+                        opcionValida = true;  // Opción válida
+                    } else {
+                        System.out.println("|(!) Opción no válida. Por favor, ingrese un número entre 1 y 3.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("|(!) Entrada inválida. Por favor ingrese un número entre 1 y 3.");
+                    scanner.nextLine();  // Limpiar el buffer para evitar un bucle infinito
+                }
+            }
+
             switch (opcion) {
                 case 1:
                     limpiarConsola();
