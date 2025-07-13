@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import Menu.GestionRegistrar;  // Importa la clase GestionRegistrar del paquete Menu
+import Menu.GestionCola; // Importa la clase GestionCola del paquete Menu
 
 
 public class Main {
@@ -42,11 +44,11 @@ public class Main {
             switch (opcion) {
                 case 1:
                     limpiarConsola();
-                    System.out.println("Opción 1: Gestionar Registro Histórico de Expedientes");
+                     GestionRegistrar.gestionarRegistroHistoricoExpedientes();  
                     break;
                 case 2:
                     limpiarConsola();
-                    System.out.println("Opción 2: Gestionar Cola de Atención Activa");
+                    GestionCola.gestionarColaAtencionActiva();
                     break;
                 case 3:
                     limpiarConsola();
@@ -56,7 +58,7 @@ public class Main {
                     System.out.println("Opción no válida, por favor intente nuevamente.");
             }
 
-            System.out.println("Presione Enter para continuar...");
+            System.out.println("\nPresione Enter para continuar...");
             scanner.nextLine();  // Esperar entrada del usuario
         }
     }
