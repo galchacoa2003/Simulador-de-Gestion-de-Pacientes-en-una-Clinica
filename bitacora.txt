@@ -46,3 +46,88 @@ implementar primero la estructura básica de un árbol binario utilizando nodos,
 ¿Qué problemas se encontraron? (Si los hubo, describir el problema y cómo se intentó resolver).
 
 sin errores.
+
+
+fecha: 13/03/2025
+
+¿Qué se trabajó hoy? (Tareas específicas completadas o en progreso).
+
+Mejora en la gestión de errores: Se ajustaron los mensajes de advertencia en la función principal, 
+especialmente en los bucles while de los módulos GestionCola y GestionRegistrar, mejorando la claridad 
+de los mensajes y la experiencia del usuario.
+
+Búsqueda por ID: Se implementó una nueva funcionalidad de búsqueda de registros por ID, utilizando 
+un método recursivo que permite la visualización interactiva del estado de búsqueda y la pausa para 
+que el usuario ingrese el ID.
+
+Validaciones mejoradas: Se añadieron validaciones para los campos de diagnóstico, fecha de nacimiento, 
+sexo y nombre del paciente. Estas validaciones aseguran que los datos ingresados sean correctos 
+(sin caracteres especiales, formato de fecha válido, etc.).
+
+Método para listar todos los registros: Se agregó un nuevo método que permite listar todos 
+los registros en el árbol binario de búsqueda, mejorando la visualización y facilitando la 
+navegación entre los registros.
+
+¿Qué inteligencia artificial se utilizó? (Si aplica, indicar la herramienta específica).
+
+Geminis
+
+¿Qué prompt se hizo? (La pregunta o solicitud exacta a la IA).
+
+
+¿La búsqueda de registros en el árbol BST se realiza de manera recursiva?
+
+
+1. ¿Cómo puede el sistema validar que el diagnóstico no esté vacío antes de guardar la información?
+
+2. ¿De qué manera el sistema puede asegurarse de que la fecha de nacimiento esté en el formato correcto (DD/MM/AAAA)?
+
+3. ¿Cómo maneja el árbol binario de búsqueda (BST) la inserción de nuevos registros y qué validaciones se deben implementar para asegurar una correcta inserción?
+
+4. ¿Cómo puede el método de listado de registros en el árbol BST mostrar todos los registros insertados hasta el momento sin omitir ninguno?
+
+5. ¿Qué validaciones debe implementar el sistema para asegurarse de que el nombre del paciente no contenga caracteres especiales?
+
+6. ¿Cómo podría el sistema realizar la búsqueda de registros por ID de manera eficiente en un árbol binario de búsqueda (BST)?
+
+7. ¿Qué técnicas o validaciones debe incorporar el sistema para agregar nuevos registros al árbol binario de búsqueda (BST) sin generar errores?
+
+8. ¿Cómo puede el código validar que el sexo del paciente se asigne correctamente, sin importar el uso de mayúsculas o minúsculas?
+
+9. ¿Qué mejoras puede implementar el sistema para gestionar mejor los mensajes de advertencia durante el proceso de registro de pacientes?
+
+10. ¿Cómo debería el sistema manejar el caso en que el árbol binario de búsqueda (BST) esté vacío, y qué mensajes deben mostrarse al usuario?
+
+
+¿Qué respondió la IA? (Un resumen de la respuesta relevante).
+
+La IA respondió que para validar que el diagnóstico no esté vacío, se puede implementar una validación 
+previa antes de guardar. Para la fecha de nacimiento, sugirió utilizar expresiones regulares o una 
+validación específica para garantizar el formato correcto. En cuanto a la inserción en el árbol 
+binario de búsqueda (BST), destacó la importancia de verificar la unicidad de los registros antes
+de insertarlos y utilizar métodos recursivos para mantener el árbol equilibrado. También mencionó
+que el listado de registros en el BST debería incluir una función de recorrido que permita mostrar 
+todos los registros sin omitir ninguno. Para la validación del nombre del paciente, la IA recomendó 
+comprobar que no contenga caracteres especiales, posiblemente utilizando expresiones regulares. Además,
+para la búsqueda eficiente por ID, sugirió usar un algoritmo recursivo para el árbol BST. Para asegurar
+que no haya errores al agregar registros, se deben validar los datos antes de la inserción. Sobre el sexo del paciente, 
+la IA sugirió normalizar los valores de entrada para garantizar la correcta asignación. Por último, 
+propuso mejorar la gestión de mensajes de advertencia para hacerlos más claros y útiles, y para 
+el caso del árbol vacío, la IA sugirió mostrar un mensaje informativo al usuario.
+
+
+¿Cómo se adaptó esa respuesta al proyecto? (Explicar cómo se integró o modificó lo sugerido por la IA).
+
+Las sugerencias de la IA se implementaron eficazmente en el proyecto de gestión de la clínica, 
+optimizando diversos aspectos del sistema. Se añadieron validaciones para asegurar que los campos 
+críticos, como el diagnóstico, la fecha de nacimiento y el nombre del paciente, estén correctamente 
+formateados y sin errores. Además, se mejoró la inserción de registros en el árbol binario de búsqueda
+(BST) mediante la verificación de datos antes de la inserción y la normalización de entradas, como el
+sexo del paciente. Se implementó un algoritmo eficiente para la búsqueda por ID y un método de listado
+completo de registros. También se mejoraron los mensajes de advertencia y se aseguró que el sistema 
+maneje adecuadamente el caso del árbol vacío, mejorando la experiencia del usuario y la eficiencia
+del sistema.
+ 
+¿Qué problemas se encontraron? (Si los hubo, describir el problema y cómo se intentó resolver).
+
+sin errores.
